@@ -71,9 +71,9 @@ class T5BlockNoCross(T5Block):
         )
         hidden_states, present_kv = sa_out[0], sa_out[1]
 
-        # ── cross-attention skipped ──
+        
 
-        hidden_states = self.layer[2](hidden_states)  # feed-forward
+        hidden_states = self.layer[2](hidden_states)  
 
         outputs = (hidden_states,)
         if use_cache:
@@ -139,7 +139,7 @@ def main():
         print(f"  L{i+1}: {sc}")
         del m
 
-    # 3. Cumulative ablation
+    
     print("\n── Cumulative ablation")
     results["cumulative"] = {}
     for n in range(1, N_LAYERS + 1):
